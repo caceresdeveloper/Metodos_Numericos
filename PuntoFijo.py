@@ -14,7 +14,7 @@ def funcionN(valor):
     return funcion 
 
 def funciong1(x):
-    resultado = m.sqrt((x+5)/2)
+    resultado = np.sqrt((x+5)/2)
     return resultado
 
 def error(valor1,valor2):
@@ -42,7 +42,7 @@ while contador < 10:
         break
     xi = gx 
     contador += 1
-
+#Salidas
 contador1 = 0
 xi1 = x0
 while True:
@@ -58,5 +58,25 @@ while True:
         break
 
 print("el valor del error es de.",valorError)
-#Salidas
+
 #Graficas 
+x = np.linspace(-10, 10, 50)
+y1 = funcionN(x)
+y2 = funciong1(x)
+
+# Gráfica de funcionN(x)
+plt.subplot(2, 1, 1)  # 2 filas, 1 columna, primera figura
+plt.plot(x, y1, 'r')
+plt.title('Funcion N(x)')
+plt.xlabel('Eje de las x')
+plt.ylabel('Eje de las y')
+
+# Gráfica de funciong1(x)
+plt.subplot(2, 1, 2)  # 2 filas, 1 columna, segunda figura
+plt.plot(x, y2, 'b')
+plt.title('Funcion g1(x)')
+plt.xlabel('Eje de las x')
+plt.ylabel('Eje de las y')
+
+plt.tight_layout()  # Ajusta los subplots para evitar superposiciones
+plt.show()
