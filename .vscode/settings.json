@@ -1,0 +1,9 @@
+{
+    "workbench.statusBar.visible": true,
+    "workbench.tips.enabled": true,
+    "workbench.view.alwaysShowHeaderActions": true,
+    "workbench.editor.autoLockGroups": {
+        "default": true
+    },
+    "workbench.editor.enablePreviewFromCodeNavigation": false
+}

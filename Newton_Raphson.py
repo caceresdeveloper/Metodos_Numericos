@@ -16,7 +16,7 @@ def error(valor1, valor2):
 def metodoNewtonRaphson():
     global raiz, puntos
     puntos = []
-    raiz = 0
+    raiz = None  # Inicializamos raiz como None
     contador = 0
     xi = 1  # Puedes cambiar el valor inicial aquí
     max_iter = 100  # Número máximo de iteraciones permitidas
@@ -25,17 +25,24 @@ def metodoNewtonRaphson():
     while contador < max_iter:
         xr = xi - funcion(xi) / funcion_derivada(xi)
         fxr = round(funcion(xr), 5)
-        valorError = error(raiz, xr)
-        print("i ", contador + 1, " xr=", xr, " f(xr)=", fxr)
+        
+        if raiz is not None:
+            valorError = error(raiz, xr)
+        else:
+            valorError = float('inf')  # Valor inicial para evitar división por cero
+        
+        print("i", contador + 1, "xr =", xr, "f(xr) =", fxr)
+        
+        if valorError <= tol:
+            print("El resultado de f(x) se acerca a cero. Converge a la raíz.")
+            break
+        
         xi = xr
         contador += 1
         raiz = xr
         puntos.append(raiz)
 
-        if valorError <= tol:
-            print("El resultado de f(x) se acerca a cero. Converge a la raiz.")
-            break
-    print("El valor del error es de.", valorError)
+    print("El valor del error es de", valorError)
 
 metodoNewtonRaphson()
 
